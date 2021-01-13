@@ -1,6 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
-//const path = require('path');
+const path = require('path');
 const cors = require('cors');
 require('dotenv').config();
 
@@ -27,11 +27,11 @@ app.use('/api', (req, res) => {
 });
 
 /* REACT WEBSITE */
-//app.use(express.static(path.join(__dirname, '../public')));
-//app.use('*', (req, res) => { res.sendFile(path.join(__dirname, '../public/index.html'));});
+app.use(express.static(path.join(__dirname, '../build')));
+app.use('*', (req, res) => { res.sendFile(path.join(__dirname, '../build/index.html'));});
 
 /* MONGOOSE */
-//mongoose.connect('mongodb://localhost:27017/sosoDB', {
+// mongodb://localhost:27017/sosoDB
 mongoose
   .connect(
     `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@cluster0.xojjv.mongodb.net/sosoDB?retryWrites=true&w=majority`,
