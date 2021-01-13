@@ -3,5 +3,5 @@
 git fetch --all
 git checkout --force "origin/master"
 yarn install
-cd /backend
+cd backend
 yarn install
