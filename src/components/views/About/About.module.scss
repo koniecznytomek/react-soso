@@ -1,4 +1,8 @@
 @use 'styles' as *;
 
-.About {
+.about {
+  min-height: 100vh;
+  img {
+    display: block;
+  }
 }
