@@ -17,8 +17,9 @@ interface MatchParams {
 
 const Product = () => {
   const [product, setProduct] = useState<Products>();
-  const [quantity, setQuantity] = useState(1);
-  const [size, setSize] = useState(0);
+  const [quantity, setQuantity] = useState<number>(1);
+  const [size, setSize] = useState<number>(0);
+  const [desc, showDesc] = useState<boolean>(false);
 
   const { id } = useParams<MatchParams>();
   const dispatch = useDispatch();
@@ -53,8 +54,17 @@ const Product = () => {
           transition={{ duration: 0.5 }}
         >
           <div className={styles.product}>
-
             <ProductSlider slider={product.slider} />
+            <div className={styles.product__desc}>
+              <p
+                className={`${
+                  desc ? styles.product__desc__show : styles.product__desc__hide
+                }`}
+              >
+                {product.desc}
+              </p>
+              <span onClick={() => showDesc(!desc)}>Product info</span>
+            </div>
             <div className={styles.frame}>
               <div className={styles.frame__name}>
                 <h1>
@@ -94,7 +104,10 @@ const Product = () => {
                     +
                   </span>
                 </div>
-                <div className={styles.frame__bottom__cart} onClick={() => handleAddToCart()}>
+                <div
+                  className={styles.frame__bottom__cart}
+                  onClick={() => handleAddToCart()}
+                >
                   <span>BUY</span>
                 </div>
               </div>
