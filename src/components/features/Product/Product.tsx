@@ -94,8 +94,8 @@ const Product = () => {
                     +
                   </span>
                 </div>
-                <div className={styles.frame__bottom__cart}>
-                  <span onClick={() => handleAddToCart()}>buy</span>
+                <div className={styles.frame__bottom__cart} onClick={() => handleAddToCart()}>
+                  <span>BUY</span>
                 </div>
               </div>
             </div>
