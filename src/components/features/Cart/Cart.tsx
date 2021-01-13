@@ -1,8 +1,13 @@
 import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom';
+
 import styles from './Cart.module.scss';
 import Basket from '../../layout/Basket/Basket';
+import { IconCancel } from '../../../assets/svg/Icons';
+import CartHint from '../Hints/CartHint';
+
 import { useDispatch, useSelector } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import { getBasketHint, setBasketHint } from '../Hints/hintsSlice';
 import {
   getCart,
   deleteFromCart,
@@ -10,9 +15,6 @@ import {
   decrease,
   priceSummary,
 } from '../../../slices/cart/cartSlice';
-import { IconCancel } from '../../../assets/svg/Icons';
-import { getBasketHint, setBasketHint } from '../Hints/hintsSlice';
-import CartHint from '../Hints/CartHint';
 
 const Cart = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -33,6 +35,8 @@ const Cart = () => {
       <div className={styles.basket} onClick={() => toggleCart()}>
         <Basket counter={cart.length} />
       </div>
+
+      {isOpen && <div className={styles.overlay}></div>}
 
       <div
         className={`${styles.container} ${
