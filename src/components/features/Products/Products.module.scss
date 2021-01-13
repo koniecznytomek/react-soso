@@ -8,17 +8,28 @@
     @include font-title;
   }
 
-  .collection {
-    padding: 200px 150px;
+  .product {
+    padding: 150px 150px;
+
+    @include media(S) {
+      padding: 100px 10px;
+    }
 
     ul {
-      @include grid(1fr 1fr 1fr 1fr);
+      @include grid(repeat(4, 1fr));
+      @include media(L) {
+        @include grid(repeat(2, 1fr));
+      }
+
+      @include media(S) {
+        @include grid(1fr);
+      }
 
       li {
-        padding-bottom: 50px;
         display: flex;
         flex-direction: column;
         align-items: center;
+        padding-bottom: 50px;
 
         img {
           max-width: 250px;

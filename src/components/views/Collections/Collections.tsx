@@ -1,11 +1,17 @@
 import React from 'react';
 import styles from './Collections.module.scss';
 import Products from '../../features/Products/Products';
+import { useThemeObserver } from '../../../hooks/useThemeObserver';
 
 const Collections = () => {
+  const { lightTheme } = useThemeObserver();
+
   return (
     <>
-      <div className={styles.collections}>
+      <div className={styles.collections} ref={lightTheme}>
+        <div className={styles.collections__title}>
+          <h1>Collections / Products</h1>
+        </div>
         <Products />
       </div>
     </>
