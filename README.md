@@ -6,9 +6,9 @@ http://soso.tomekkonieczny.com/
 
 API
 
-http://soso.tomekkonieczny.com:8000/api
+http://soso.tomekkonieczny.com/api
 
-endpoints:
+Endpoints:
 
 `/products` `/collections` `/orders`
 
