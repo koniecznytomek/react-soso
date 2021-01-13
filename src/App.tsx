@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { Route, Switch, useLocation } from 'react-router-dom';
 
-import { useDispatch, useSelector } from 'react-redux';
-import { getBasketHint } from './components/features/Hints/hintsSlice';
+import { useDispatch } from 'react-redux';
 import { fetchProducts } from './slices/products/productSlice';
+import { fetchCollections } from './slices/collections/collectionsSlice';
 
 import './styles/global.scss';
 import { AnimatePresence } from 'framer-motion';
@@ -15,15 +15,12 @@ import Product from './components/features/Product/Product';
 import Checkout from './components/views/Checkout/Checkout';
 import Lookbook from './components/views/Lookbook/Lookbook';
 import About from './components/views/About/About';
-import CartHint from './components/features/Hints/CartHint';
 import Collections from './components/views/Collections/Collections';
-import { fetchCollections } from './slices/collections/collectionsSlice';
 import OrderSummary from './components/views/OrderSummary/OrderSummary';
 
 function App() {
   const dispatch = useDispatch();
   const location = useLocation();
-  const hint = useSelector(getBasketHint);
 
   useEffect(() => {
     dispatch(fetchProducts());
@@ -32,7 +29,6 @@ function App() {
 
   return (
     <>
-      {hint && <CartHint />}
       <Main>
         <AnimatePresence exitBeforeEnter>
           <Switch location={location} key={location.pathname}>
