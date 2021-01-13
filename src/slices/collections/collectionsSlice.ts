@@ -4,7 +4,14 @@ import { AppThunk } from '../../store/store';
 import { Collections, State } from './types';
 import { RootState } from '../../store/rootReducer';
 
-const apiURL = `http://localhost:8000/api/collections`;
+let apiURL: string;
+const hostname = window && window.location && window.location.hostname;
+
+if (hostname === process.env.REACT_APP_API_HOST) {
+  apiURL = `${process.env.REACT_APP_API_URL}/api/collections`;
+} else {
+  apiURL = 'http://localhost:8000/api/collections';
+}
 
 const initialState: State = {
   collections: [],
@@ -45,6 +52,11 @@ export const fetchCollections = (): AppThunk => {
   };
 };
 
-export const getCollections = (state: RootState) => state.collectionsState.collections;
-export const { setLoading, setErrors, setCollections } = collectionsSlice.actions;
+export const getCollections = (state: RootState) =>
+  state.collectionsState.collections;
+export const {
+  setLoading,
+  setErrors,
+  setCollections,
+} = collectionsSlice.actions;
 export default collectionsSlice.reducer;

@@ -4,7 +4,14 @@ import { AppThunk } from '../../store/store';
 import { Order, State } from './types';
 import { cleanCart } from '../cart/cartSlice';
 
-const apiURL = `http://localhost:8000/api/orders/order`;
+let apiURL: string;
+const hostname = window && window.location && window.location.hostname;
+
+if (hostname === process.env.REACT_APP_API_HOST) {
+  apiURL = `${process.env.REACT_APP_API_URL}/api/orders/order`;
+} else {
+  apiURL = 'http://localhost:8000/api/orders/order';
+}
 
 const initialState: State = {
   loading: false,
