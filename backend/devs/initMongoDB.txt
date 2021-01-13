@@ -1,0 +1,13 @@
+use sosoDB
+
+db.createCollection('products')
+db.createCollection('collections')
+db.createCollection('orders')
+
+
+db.products.insertMany([{
+  name: '1',
+ //
+}])
+
+db.products.find().pretty()

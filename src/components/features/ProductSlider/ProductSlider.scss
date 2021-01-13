@@ -1,0 +1,64 @@
+@use 'styles' as *;
+
+.slider {
+  grid-row: 1;
+  grid-column: 1 / -1;
+  align-self: center;
+  z-index: 1;
+  text-align: center;
+  max-height: 100%;
+
+  &__images {
+    @include grid;
+    height: 100vh;
+
+    img {
+      min-height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__image {
+    grid-row: 1;
+    grid-column: 1 / -1;
+    z-index: 2;
+  }
+}
+
+$time: 1s;
+$easing: cubic-bezier(0.83, 0, 0.17, 1);
+.show {
+  visibility: visible;
+}
+
+.hide {
+  visibility: hidden;
+}
+
+.isShowing {
+  animation: isShowing $time $easing forwards;
+}
+
+.isHiding {
+  animation: isHiding $time $easing forwards;
+}
+
+@keyframes isShowing {
+  from {
+    transform: translate3d(0, 100%, 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes isHiding {
+  from {
+    visibility: visible;
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    visibility: hidden;
+    transform: translate3d(0, -100%, 0);
+  }
+}

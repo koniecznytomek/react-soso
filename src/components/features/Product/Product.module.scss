@@ -1,0 +1,130 @@
+@use 'styles' as *;
+
+.product {
+  @include grid;
+  overflow: hidden;
+  height: 100vh;
+
+  .frame {
+    @include grid(1fr 2fr, 2);
+    grid-row: 1;
+    grid-column: 1 / -1;
+    align-self: end;
+    justify-self: end;
+    z-index: 2;
+    width: 500px;
+    min-height: 100px;
+    margin: 50px;
+    border: 2px solid;
+
+    &__name {
+      grid-row: 1;
+      grid-column: 1 / 2;
+      border-right: 2px solid;
+
+      h1 {
+        @include font-title;
+        padding: 25px 0 0 25px;
+
+        span {
+          display: inline-block;
+          font-size: 0.7em;
+          transform: translate(10px, -20px);
+        }
+      }
+    }
+
+    &__price {
+      grid-row: 2;
+      grid-column: 1 / 2;
+      position: relative;
+      text-align: right;
+      border-right: 2px solid;
+
+      p {
+        @include font-price;
+        padding: 0 15px 20px 0;
+      }
+
+      span {
+        display: block;
+        position: absolute;
+        top: -30px;
+        left: 50px;
+
+        svg {
+          display: block;
+          width: 50px;
+          height: 50px;
+          content: ' ';
+          stroke: $color-white;
+          stroke-miterlimit: 10;
+        }
+      }
+    }
+
+    &__collection {
+      grid-row: 1;
+      grid-column: 2 / -1;
+      border-bottom: 2px solid;
+
+      p {
+        @include font-normal;
+        padding: 10px;
+      }
+    }
+
+    &__bottom {
+      @include grid(1fr 1fr 1fr);
+      @include font-normal;
+
+      &__quantity {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-right: 2px solid;
+
+        span {
+          padding: 0 10px;
+          cursor: pointer;
+          user-select: none;
+        }
+      }
+
+      &__size {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-right: 2px solid;
+
+        span {
+          cursor: pointer;
+          user-select: none;
+          padding: 0 2px;
+        }
+      }
+
+      &__cart {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.product {
+  color: $color-white;
+
+  .frame,
+  .frame > * {
+    border-color: $color-white;
+  }
+
+  .frame__price span {
+    svg {
+      stroke: $color-white;
+    }
+  }
+}

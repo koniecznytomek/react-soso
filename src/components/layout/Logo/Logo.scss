@@ -1,0 +1,33 @@
+@use 'styles' as *;
+
+.logo {
+  position: fixed;
+  z-index: 100;
+  top: 100px;
+  left: 100px;
+  width: 50px;
+
+  @include media(M) {
+    top: 50px;
+    left: 50px;
+    width: 50px;
+  }
+
+  svg {
+    fill: $color-white;
+  }
+
+  &__light {
+    svg {
+      transition: all 0.5s ease-in-out;
+      fill: $color-white;
+    }
+  }
+
+  &__dark {
+    svg {
+      transition: all 0.5s ease-in-out;
+      fill: $color-black;
+    }
+  }
+}

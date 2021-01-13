@@ -1,0 +1,41 @@
+@use 'styles' as *;
+
+.nav {
+  position: fixed;
+  z-index: 100;
+  top: 100px;
+  right: 200px;
+
+  a {
+    text-decoration: none;
+    color: $color-white;
+  }
+
+  &__dark {
+    a {
+      transition: all 0.5s ease-in-out;
+      color: $color-black;
+    }
+  }
+
+  &__light {
+    a {
+      transition: all 0.5s ease-in-out;
+      color: $color-white;
+    }
+  }
+
+  @include media(M) {
+    top: 50px;
+    right: 130px;
+  }
+
+  ul {
+    display: flex;
+
+    li {
+      @include font-nav;
+      padding: 0 10px;
+    }
+  }
+}

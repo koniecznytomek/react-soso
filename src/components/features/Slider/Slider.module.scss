@@ -1,0 +1,63 @@
+@use 'styles' as *;
+
+.slider {
+  @include grid;
+  min-height: 100vh;
+
+  .slide {
+    @include grid;
+    grid-row: 1;
+    grid-column: 1 / -1;
+
+    h1 {
+      @include font-hero;
+      grid-row: 1;
+      grid-column: 1 / -1;
+      z-index: 2;
+      color: $color-white;
+      place-self: center;
+    }
+
+    img {
+      grid-row: 1;
+      grid-column: 1 / -1;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      place-self: center;
+      object-fit: cover;
+    }
+
+    &__show {
+      transition: all 2s ease;
+      opacity: 1;
+    }
+
+    &__hide {
+      transition: all 2s ease;
+      opacity: 0;
+    }
+  }
+
+  .dots {
+    display: flex;
+    grid-row: 1;
+    grid-column: 1 / -1;
+    position: relative;
+    z-index: 3;
+    margin: 100px;
+    place-self: end;
+  }
+
+  .dot {
+    padding: 20px;
+    cursor: pointer;
+  }
+
+  .circle {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    transition: all 2s ease;
+  }
+}

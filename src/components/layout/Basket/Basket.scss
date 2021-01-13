@@ -1,0 +1,50 @@
+@use 'styles' as *;
+
+.basket {
+  position: fixed;
+  z-index: 100;
+  top: 90px;
+  right: 100px;
+  width: 25px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+
+  @include media(M) {
+    top: 40px;
+    right: 60px;
+    width: 20px;
+  }
+
+  svg {
+    fill: $color-white;
+  }
+
+  &__light {
+    svg {
+      transition: all 0.5s ease-in-out;
+      fill: $color-white;
+    }
+  }
+
+  &__dark {
+    svg {
+      transition: all 0.5s ease-in-out;
+      fill: $color-black;
+    }
+  }
+
+  .counter {
+    padding-top: 10px;
+    @include font-nav;
+    color: $color-white;
+
+    &__light {
+      color: $color-white;
+    }
+
+    &__dark {
+      color: $color-black;
+    }
+  }
+}

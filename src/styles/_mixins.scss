@@ -1,0 +1,78 @@
+@use 'variables' as *;
+
+// =============================================================================
+// CSS Gid Layout
+// =============================================================================
+
+@mixin grid($spans: null, $rows: auto) {
+  display: grid;
+  @if ($spans != null) {
+    grid-template-columns: $spans;
+  } @else {
+    grid-template-columns: repeat(12, 1fr);
+  }
+  grid-template-rows: $rows;
+}
+
+// =============================================================================
+// Media query
+// =============================================================================
+
+@mixin media($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media (max-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  } @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+        + "Available breakpoints are: #{map-keys($breakpoints)}.";
+  }
+}
+
+// =============================================================================
+// Font Face
+// =============================================================================
+
+@mixin font($name, $file, $weight: normal, $style: normal) {
+  @font-face {
+    font-family: '#{$name}';
+    src: url('../../src/assets/fonts/#{$file}.woff2') format('woff2'),
+    url('../../src/assets/fonts/#{$file}.woff') format('woff');
+    font-weight: $weight;
+    font-style: $style;
+  }
+}
+
+// =============================================================================
+// Font Size Fluid
+// =============================================================================
+
+@function strip-unit($value) {
+  @return $value / ($value * 0 + 1);
+}
+
+@mixin font-size-fluid($min-vw, $max-vw, $min-font-size, $max-font-size) {
+  $u1: unit($min-vw);
+  $u2: unit($max-vw);
+  $u3: unit($min-font-size);
+  $u4: unit($max-font-size);
+
+  @if $u1 == $u2 and $u1 == $u3 and $u1 == $u4 {
+    & {
+      font-size: $min-font-size;
+
+      @media screen and (min-width: $min-vw) {
+        font-size: calc(
+                #{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} *
+                ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)})
+        );
+        line-height: calc(#{$min-font-size} + 1vw);
+      }
+      @media screen and (min-width: $max-vw) {
+        font-size: $max-font-size;
+      }
+    }
+  }
+}
+
+

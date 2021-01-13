@@ -1,0 +1,44 @@
+@use 'styles' as *;
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 100px;
+  padding: 0 100px;
+
+  @include media(M) {
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 25px;
+  }
+
+  nav ul {
+    display: flex;
+
+    li {
+      padding-right: 15px;
+
+      @include media(M) {
+        padding: 0 5px;
+      }
+
+      a {
+        @include font-regular;
+        font-size: 9px;
+        text-transform: uppercase;
+        text-decoration: none;
+        color: $color-black;
+      }
+    }
+  }
+
+  .copyright {
+    @include media(M) {
+      padding: 10px 0;
+    }
+    p {
+      @include font-nav;
+    }
+  }
+}

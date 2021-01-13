@@ -1,0 +1,56 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+@use 'fonts' as *;
+
+%product {
+  .product {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &__thumb {
+      max-width: 100px;
+    }
+
+    &__name {
+      text-align: center;
+      p {
+        @include font-price;
+        padding: 0 25px;
+      }
+      @include font-regular;
+      font-size: 9px;
+    }
+
+    &__quantity {
+      @include font-regular;
+      padding: 0 25px;
+    }
+
+    &__increment {
+      position: relative;
+      top: -2px;
+      font-size: 10px;
+      margin: 0 10px;
+      padding: 0 4px;
+      cursor: pointer;
+      user-select: none;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+    }
+
+    &__price {
+      @include font-price;
+    }
+
+    &__delete {
+      padding: 0 20px;
+      cursor: pointer;
+      position: relative;
+      top: -2px;
+     svg {
+       width: 8px;
+     }
+    }
+  }
+}

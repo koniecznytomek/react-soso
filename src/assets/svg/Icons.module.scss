@@ -1,0 +1,31 @@
+@use 'styles' as *;
+
+.icon {
+  display: inline-block;
+  user-select: none;
+  width: 12px;
+}
+
+.cacnel,
+.confirm {
+  fill: $color-black;
+  width: 12px;
+}
+
+.wallet {
+  fill: $color-black;
+  width: 50px;
+}
+
+.dot,
+.circle {
+  fill: $color-white;
+}
+
+.dot {
+  width: 10px;
+}
+
+.circle {
+  width: 40px;
+}

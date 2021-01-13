@@ -1,0 +1,27 @@
+@use 'styles' as *;
+
+.hint {
+  position: fixed;
+  top: 60px;
+  right: 60px;
+  z-index: 100;
+  width:300px;
+  animation: rotate 2.5s linear infinite;
+
+  svg {
+    fill: $color-white;
+  }
+
+  @include media(M) {
+    display: none;
+  }
+
+  @keyframes rotate{
+    10% { transform: translateY(10px); }
+    30% { transform: translateX(10px); }
+    50% { transform: translate(15px, 15px); }
+    70% { transform: translate(10px, 10px); }
+  }
+}
+
+

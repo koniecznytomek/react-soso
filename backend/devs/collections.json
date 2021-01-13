@@ -1,0 +1,26 @@
+[
+  {
+    "name": "1",
+    "price": 12,
+    "series": "Sosodots",
+    "image": "so-dots.jpg"
+  },
+  {
+    "name": "2",
+    "price": 13,
+    "series": "Sosorainbow",
+    "image": "so-rainbow.jpg"
+  },
+  {
+    "name": "3",
+    "price": 12,
+    "series": "Sosorainbow",
+    "image": "so-rainbow-2.jpg"
+  },
+  {
+    "name": "4",
+    "price": 12,
+    "series": "Sosopink",
+    "image": "so-pink.jpg"
+  }
+]
