@@ -19,7 +19,7 @@ const orderRoutes = require('./routes/order.routes');
 
 app.use('/api', productRoutes);
 app.use('/api', seriesRoutes);
-app.use('/api/orders', orderRoutes);
+app.use('/api', orderRoutes);
 
 /* API ERROR PAGES */
 app.use('/api', (req, res) => {

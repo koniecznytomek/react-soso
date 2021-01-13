@@ -17,3 +17,14 @@ exports.sendOrder = async (req, res) => {
     res.status(500).json({ message: err });
   }
 };
+
+exports.getOrders = async (req, res) => {
+  try {
+    const result = await Order.find({})
+      .select('email fullname phone address comments order')
+    if (!result) res.status(404).json({ post: 'Not found' });
+    else res.json(result);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+};

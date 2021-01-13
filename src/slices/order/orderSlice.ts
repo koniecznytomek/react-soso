@@ -10,7 +10,7 @@ const hostname = window && window.location && window.location.hostname;
 if (hostname === process.env.REACT_APP_API_HOST) {
   apiURL = `${process.env.REACT_APP_API_URL}/orders/order`;
 } else {
-  apiURL = 'http://localhost:8000/api/orders/order';
+  apiURL = 'http://localhost:8000/api/orders';
 }
 
 const initialState: State = {
