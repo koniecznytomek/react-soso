@@ -2,6 +2,9 @@ import { useRef, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { setTheme } from '../slices/theme/themeSlice';
 
+// Polyfill for safari.
+require('intersection-observer');
+
 interface Options {
   threshold: number[];
 }
