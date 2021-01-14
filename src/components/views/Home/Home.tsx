@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 
 import { useThemeObserver } from '../../../hooks/useThemeObserver';
@@ -17,6 +17,10 @@ const Home = () => {
   const { lightTheme } = useThemeObserver();
   const collections = useSelector(getCollections);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <>
       <motion.div
@@ -28,20 +32,26 @@ const Home = () => {
         <div className={styles.home}>
           <Slider />
           <section className={styles.collections} ref={lightTheme}>
-            {collections && collections.map(c => (
-              <Collection
-                key={c.name}
-                name={c.name}
-                price={c.price}
-                series={c.series}
-                image={c.image}
-              />
-            ))}
+            {collections &&
+              collections.map(c => (
+                <Collection
+                  key={c.name}
+                  name={c.name}
+                  price={c.price}
+                  series={c.series}
+                  image={c.image}
+                />
+              ))}
           </section>
           <section className={styles.lookbook}>
-            <h1>Lookbook 2021</h1>
-            <NavLink to='/lookbook'>view lookbook</NavLink>
-            <img src='/images/so-elegant-1.jpg' alt='soelegant' />
+            <div className={styles.lookbook__title}>
+              <p>2021</p>
+              <h1>Spring & summer</h1>
+              <NavLink to='/lookbook'>view lookbook</NavLink>
+            </div>
+            <div className={styles.lookbook__img}>
+              <img src='/images/so-elegant-1.jpg' alt='soelegant' />
+            </div>
           </section>
           <Footer />
         </div>
