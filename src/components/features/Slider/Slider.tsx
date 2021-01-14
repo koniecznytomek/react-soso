@@ -4,8 +4,8 @@ import { useInterval } from '../../../hooks/useInterval';
 import { IconCircle, IconDot } from '../../../assets/svg/Icons';
 
 const slider = [
-  { src: 'so_dots_1.jpg', alt: 'slide', desc: 'So so happy new year!' },
-  { src: 'so_dots_2.jpg', alt: 'slide', desc: 'Soso dots collection!' },
+  { src: 'so_dots_1.jpg', alt: 'slide', desc: 'Soso happy new year!' },
+  { src: 'so_dots_2.jpg', alt: 'slide', desc: 'Sosodots collection!' },
   { src: 'so-4-1.jpg', alt: 'slide', desc: 'Sosopink collection!' },
 ];
 
