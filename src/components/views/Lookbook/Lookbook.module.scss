@@ -1,5 +1,30 @@
 @use 'styles' as *;
 
 .lookbook {
+  @include grid;
   min-height: 100vh;
+
+  &__title {
+    grid-row: 1;
+    grid-column: 1 / 8;
+    z-index: 2;
+    place-self: center;
+
+    h1 {
+      @include font-hero;
+      padding: 25px 0;
+    }
+  }
+
+  &__img {
+    grid-row: 1;
+    grid-column: 1 / -1;
+    z-index: 1;
+
+    img {
+      width: 100%;
+      min-height: 100%;
+      object-fit: cover;
+    }
+  }
 }
