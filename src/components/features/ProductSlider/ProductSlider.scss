@@ -13,6 +13,7 @@
     height: 100vh;
 
     img {
+      display: block;
       min-height: 100%;
       object-fit: cover;
     }
@@ -27,7 +28,9 @@
 
 $time: 1s;
 $easing: cubic-bezier(0.83, 0, 0.17, 1);
+
 .show {
+  transition-delay: .1s;
   visibility: visible;
 }
 
@@ -45,10 +48,13 @@ $easing: cubic-bezier(0.83, 0, 0.17, 1);
 
 @keyframes isShowing {
   from {
+    visibility: hidden;
     transform: translate3d(0, 100%, 0);
   }
   to {
+    visibility: visible;
     transform: translate3d(0, 0, 0);
+
   }
 }
 

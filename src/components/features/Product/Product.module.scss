@@ -21,15 +21,11 @@
     }
 
     &__show {
-      opacity: 1;
-      transform: translateY(0);
-      transition: all 1s ease-in-out;
+      display: block;
     }
 
     &__hide {
-      opacity: 0;
-      transform: translateY(-100px);
-      transition: all 1s ease-in-out;
+      display: none;
     }
 
     p {
@@ -156,6 +152,7 @@
   }
 }
 
+/* styles for theme changer on single product (soon) */
 .product {
   color: $color-white;
 

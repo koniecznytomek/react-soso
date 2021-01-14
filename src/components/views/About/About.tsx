@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from './About.module.scss';
 import { useThemeObserver } from '../../../hooks/useThemeObserver';
 import { motion } from 'framer-motion';
@@ -6,6 +6,10 @@ import Footer from '../../layout/Footer/Footer';
 
 const About = () => {
   const { lightTheme } = useThemeObserver();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <>
