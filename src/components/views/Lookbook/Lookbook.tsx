@@ -1,11 +1,9 @@
 import React, { useEffect } from 'react';
+
 import { motion } from 'framer-motion';
 import styles from './Lookbook.module.scss';
-import { useThemeObserver } from '../../../hooks/useThemeObserver';
-import { NavLink } from 'react-router-dom';
 
 const Lookbook = () => {
-  const { lightTheme } = useThemeObserver();
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -19,13 +17,19 @@ const Lookbook = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
       >
-        <div className={styles.lookbook} ref={lightTheme}>
-          <div className={styles.lookbook__title}>
-            <h1>Spring & summer</h1>
-          </div>
-          <div className={styles.lookbook__img}>
-            <img src='/images/so-elegant-1.jpg' alt='soelegant' />
-          </div>
+        <div className={styles.lookbook}>
+          <header className={styles.header}>
+            <div className={styles.header__title}>
+              <h1>Spring & summer</h1>
+              <p>Soon</p>
+            </div>
+            <div className={styles.header__img}>
+              <img src='/images/so-elegant-1.jpg' alt='soelegant' />
+            </div>
+            <section className={styles.content}>
+
+            </section>
+          </header>
         </div>
       </motion.div>
     </>

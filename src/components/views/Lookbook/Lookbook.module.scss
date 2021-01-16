@@ -1,30 +1,37 @@
 @use 'styles' as *;
 
 .lookbook {
-  @include grid;
-  min-height: 100vh;
+  .header {
+    @include grid;
+    min-height: 100vh;
 
-  &__title {
-    grid-row: 1;
-    grid-column: 1 / 8;
-    z-index: 2;
-    place-self: center;
+    &__title {
+      grid-row: 1;
+      grid-column: 1 / 8;
+      z-index: 2;
+      place-self: center;
 
-    h1 {
-      @include font-hero;
-      padding: 25px 0;
+      h1 {
+        @include font-hero;
+        padding: 25px 0;
+      }
+
+      p {
+        @include font-title;
+        padding: 50px 10px 0 300px;
+      }
     }
-  }
 
-  &__img {
-    grid-row: 1;
-    grid-column: 1 / -1;
-    z-index: 1;
+    &__img {
+      grid-row: 1;
+      grid-column: 1 / -1;
+      z-index: 1;
 
-    img {
-      width: 100%;
-      min-height: 100%;
-      object-fit: cover;
+      img {
+        width: 100%;
+        min-height: 100%;
+        object-fit: cover;
+      }
     }
   }
 }
