@@ -1,10 +1,17 @@
-import React from 'react';
-import styles from './OrderSummary.module.scss';
+import React, { useEffect } from 'react';
+
 import { useThemeObserver } from '../../../hooks/useThemeObserver';
+
+import styles from './OrderSummary.module.scss';
 import { motion } from 'framer-motion';
 
 const OrderSummary = () => {
   const { lightTheme } = useThemeObserver();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <>
       <motion.div

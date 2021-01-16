@@ -1,11 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+
+import { useThemeObserver } from '../../../hooks/useThemeObserver';
+
 import styles from './Checkout.module.scss';
 import { motion } from 'framer-motion';
 import FormCheckout from '../../features/FormCheckout/FormCheckout';
-import { useThemeObserver } from '../../../hooks/useThemeObserver';
 
 const Checkout = () => {
   const { lightTheme } = useThemeObserver();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <>

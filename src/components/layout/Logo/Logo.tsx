@@ -1,9 +1,10 @@
 import React from 'react';
-import './Logo.scss';
 import { NavLink } from 'react-router-dom';
 
 import { useSelector } from 'react-redux';
 import { getTheme } from '../../../slices/theme/themeSlice';
+
+import './Logo.scss';
 
 const Logo = () => {
   const theme = useSelector(getTheme);

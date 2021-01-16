@@ -1,9 +1,11 @@
 import React, { useEffect } from 'react';
-import styles from './About.module.scss';
+
 import { useThemeObserver } from '../../../hooks/useThemeObserver';
+import { useSlideImages } from '../../../hooks/useSlideImages';
+
+import styles from './About.module.scss';
 import { motion } from 'framer-motion';
 import Footer from '../../layout/Footer/Footer';
-import { useSlideImages } from '../../../hooks/useSlideImages';
 
 const About = () => {
   const { slideImage } = useSlideImages();
