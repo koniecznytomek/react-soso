@@ -1,9 +1,11 @@
 import React from 'react';
-import styles from './Products.module.scss';
 import { NavLink } from 'react-router-dom';
-import { motion } from 'framer-motion';
+
 import { useSelector } from 'react-redux';
 import { getProducts } from '../../../slices/products/productSlice';
+
+import styles from './Products.module.scss';
+import { motion } from 'framer-motion';
 import Footer from '../../layout/Footer/Footer';
 
 const Products = () => {
@@ -20,29 +22,28 @@ const Products = () => {
         <div className={styles.products}>
           <div className={styles.product}>
             <ul>
-              {products &&
-                products.map(product => (
-                  <li key={product.name}>
-                    <NavLink to={`/product/${product.name}`}>
-                      <img src={`/images/${product.thumb}`} alt='soso' />
-                    </NavLink>
-                    <div className={styles.info}>
-                      <div className={styles.name}>
-                        <h2>
-                          So.<span>{product.name}</span>
-                        </h2>
-                      </div>
-                      <div className={styles.price}>
-                        <p>{product.price} €</p>
-                        <span>
-                          <svg viewBox='0 0 50 50'>
-                            <line x1='50' y1='0' x2='0' y2='50' />
-                          </svg>
-                        </span>
-                      </div>
+              {products?.map(product => (
+                <li key={product.name}>
+                  <NavLink to={`/product/${product.name}`}>
+                    <img src={`/images/${product.thumb}`} alt='soso' />
+                  </NavLink>
+                  <div className={styles.info}>
+                    <div className={styles.name}>
+                      <h2>
+                        So.<span>{product.name}</span>
+                      </h2>
                     </div>
-                  </li>
-                ))}
+                    <div className={styles.price}>
+                      <p>{product.price} €</p>
+                      <span>
+                        <svg viewBox='0 0 50 50'>
+                          <line x1='50' y1='0' x2='0' y2='50' />
+                        </svg>
+                      </span>
+                    </div>
+                  </div>
+                </li>
+              ))}
             </ul>
           </div>
         </div>

@@ -1,8 +1,10 @@
 import React, { useState, useRef, useEffect } from 'react';
-import './ProductSlider.scss';
+
 import SliderHint from '../Hints/SliderHint';
 import { useDispatch, useSelector } from 'react-redux';
 import { getSliderHint, setSliderHint } from '../Hints/hintsSlice';
+
+import './ProductSlider.scss';
 
 interface Props {
   slider: {
@@ -79,7 +81,7 @@ const ProductSlider = ({ slider }: Props) => {
           className='slider__images'
           onClick={() => !isSliding && handleNext()}
         >
-          {slider.map((slide, i) => (
+          {slider?.map((slide, i) => (
             <div
               key={i}
               className={`slider__image ${handleShowing(i)}`}

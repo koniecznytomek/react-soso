@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import styles from './Slider.module.scss';
 import { useInterval } from '../../../hooks/useInterval';
+
+import styles from './Slider.module.scss';
 import { IconCircle, IconDot } from '../../../assets/svg/Icons';
 
 const slider = [
@@ -20,8 +21,7 @@ const Slider = () => {
     <>
       <header>
         <div className={styles.slider}>
-          {slider &&
-            slider.map((slide, i) => (
+          {slider?.map((slide, i) => (
               <div
                 key={i}
                 className={`${styles.slide} ${
