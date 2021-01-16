@@ -1,6 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+
+import React, { useEffect, useState } from 'react';
+
+import { useDispatch, useSelector } from 'react-redux';
+import { sendOrder } from '../../../slices/order/orderSlice';
+import { Order } from '../../../slices/order/types';
+
 import {
   priceSummary,
   decrease,
@@ -12,11 +17,10 @@ import {
 
 import styles from './FormCheckout.module.scss';
 import { IconCancel } from '../../../assets/svg/Icons';
-import { sendOrder } from '../../../slices/order/orderSlice';
 
 const FormCheckout = () => {
-  const [error, setError] = useState(false);
-  const [data, setData] = useState({
+  const [error, setError] = useState<boolean>(false);
+  const [data, setData] = useState<Order>({
     fullname: '',
     email: '',
     phone: '',
