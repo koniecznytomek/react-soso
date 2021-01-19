@@ -80,7 +80,7 @@ const Product = () => {
                 </span>
               </div>
               <div className={styles.frame__collection}>
-                <p>{product.collection}</p>
+                <p>{product.series}</p>
               </div>
               <div className={styles.frame__bottom}>
                 <div className={styles.frame__bottom__quantity}>

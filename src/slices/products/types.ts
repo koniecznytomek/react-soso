@@ -4,7 +4,7 @@ export interface Products {
   price: number;
   quantity: number;
   sizes: string[];
-  collection: string;
+  series: string;
   thumb: string;
   slider: {
     src: string;
