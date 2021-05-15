@@ -27,10 +27,6 @@ only front:
 `yarn front`
 
 
-## Last commit
-
-https://github.com/koniecznytomek/react-soso/tree/d19bc4c5f37c1b73c40dae0d42de78932f218063
-
 ### Features and stack
 
 - @reactJS
